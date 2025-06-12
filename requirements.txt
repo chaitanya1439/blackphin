@@ -3,3 +3,5 @@ openai
 tiktoken
 chromadb
 markitdown[all]
+google-generativeai
+sentence-transformers
