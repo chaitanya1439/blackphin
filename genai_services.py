@@ -19,7 +19,7 @@ openai_client = OpenAI(
 def call_llm(messages: List[dict]) -> str:
     """Helper function to call Gemini API"""
     response = openai_client.chat.completions.create(
-        model=os.getenv("gemini-2.0-flash"),
+        model=os.getenv("MODEL_NAME"),
         messages=messages,
     )
     return response.choices[0].message.content
