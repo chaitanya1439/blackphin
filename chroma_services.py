@@ -7,7 +7,7 @@ load_dotenv(dotenv_path=".env")
 
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection(
-    name=os.getenv("CHROMA_COLLECTION_NAME")
+    name=os.getenv("CHROMA_COLLECTION_NAME", "rag_collection")
 )
 
 

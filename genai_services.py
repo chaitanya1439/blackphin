@@ -11,15 +11,15 @@ load_dotenv(dotenv_path=".env")
 # You need to get your Gemini API key
 
 openai_client = OpenAI(
-    api_key=os.getenv("MODEL_API_KEY"),
-    base_url=os.getenv("MODEL_BASE_URL")
+    api_key=os.getenv("MODEL_API_KEY", "AIzaSyAr6Qcx3fYdppmn9D7TK6ZK7rPcUKYyLiI"),
+    base_url=os.getenv("MODEL_BASE_URL", "https://generativelanguage.googleapis.com/v1beta/openai")
 )
 
 
 def call_llm(messages: List[dict]) -> str:
     """Helper function to call Gemini API"""
     response = openai_client.chat.completions.create(
-        model=os.getenv("MODEL_NAME"),
+        model=os.getenv("MODEL_NAME", "gemini-2.0-flash"),
         messages=messages,
     )
     return response.choices[0].message.content
